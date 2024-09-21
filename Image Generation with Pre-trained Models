@@ -1,0 +1,32 @@
+Install Required Libraries:
+
+pip install diffusers transformers 
+
+
+Load the Pre-trained Model:
+
+from diffusers import StableDiffusionPipeline
+
+model = StableDiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5")
+
+
+Generate the Image:
+
+prompt = "A cat wearing a hat, sitting on a chair"
+image = model(prompt, num_inference_steps=50, guidance_scale=7.5)["images"][0]
+
+
+Display or Save the Image:
+
+import matplotlib.pyplot as plt
+
+plt.imshow(image)
+plt.show()
+
+
+
+import dalle_mini
+
+generator = dalle_mini.DalleMini()
+text = "A cat wearing a hat, sitting on a chair"
+images = generator(text, num_images=1)
